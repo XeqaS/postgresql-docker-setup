@@ -36,3 +36,70 @@ Skrypt `setup_postgres_docker.sh` jest narzędziem do automatycznego konfigurowa
 Skopiuj plik `setup_postgres_docker.sh` do swojego systemu i upewnij się, że ma prawa do uruchamiania:
 ```bash
 chmod +x setup_postgres_docker.sh
+```
+2. Uruchom skrypt  
+W terminalu uruchom skrypt:
+
+```bash
+./setup_postgres_docker.sh
+```
+
+3. Wyloguj się i zaloguj ponownie  
+Jeśli jest to pierwsza instalacja Dockera, konieczne będzie wylogowanie się i zalogowanie ponownie, aby użytkownik został poprawnie dodany do grupy `docker`.
+
+4. Obsługa plików  
+Po uruchomieniu skryptu:
+
+- Plik `docker-compose.yml` znajdziesz w folderze `~/postgresql-docker`.
+- Plik `.env` zawiera dane użytkownika, hasło oraz nazwę bazy danych, które możesz edytować według potrzeb.
+
+### Struktura projektu
+
+- `docker-compose.yml` – konfiguracja Docker Compose dla PostgreSQL.
+- `.env` – dane środowiskowe (nazwa użytkownika, hasło, baza danych).
+- `setup_postgres_docker.sh` – główny skrypt instalacyjny.
+
+### Wymagania systemowe
+
+- **System operacyjny**: Ubuntu/Debian lub inny system zgodny z `apt`.
+- **Uprawnienia administratora**: Wymagane do instalacji Dockera i konfiguracji systemu.
+- **Narzędzia**:
+  - `curl`
+  - `jq` (do przetwarzania JSON).
+
+---
+
+### Automatyczna aktualizacja PostgreSQL
+
+- Skrypt sprawdza dostępność nowszych wersji PostgreSQL w ramach ustalonej serii (np. 15.x).  
+- Jeśli nowsza wersja jest dostępna, kontener zostaje automatycznie zaktualizowany.  
+- W przypadku dużych zmian (np. z 15.x na 16.x), użytkownik otrzymuje instrukcję przeprowadzenia aktualizacji ręcznej.
+
+---
+
+### Uwagi dotyczące bezpieczeństwa
+
+- Upewnij się, że plik `.env` zawierający dane środowiskowe jest chroniony przed nieautoryzowanym dostępem.  
+- Regularnie aktualizuj obrazy Dockera, aby korzystać z najnowszych poprawek bezpieczeństwa.
+
+---
+
+### Przykładowy plik `.env`
+
+```plaintext
+POSTGRES_USER=default_user
+POSTGRES_PASSWORD=default_password
+POSTGRES_DB=default_db
+```
+
+---
+
+### Dodatkowe informacje
+
+- Aby dowiedzieć się więcej o Dockerze: [Docker Docs](https://docs.docker.com)  
+- Aby dowiedzieć się więcej o PostgreSQL: [PostgreSQL Docs](https://www.postgresql.org/docs/)  
+- Problemy z konfiguracją? Skontaktuj się z administratorem systemu lub otwórz zgłoszenie w repozytorium projektu.
+
+---
+
+🎉 **Skrypt gotowy do użytku!** Ciesz się automatycznym zarządzaniem PostgreSQL w Dockerze!
