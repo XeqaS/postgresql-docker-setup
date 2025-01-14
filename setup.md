@@ -1,14 +1,12 @@
+# Automatyczna instalacja Docker i PostgreSQL
 
+Kompletny skrypt zawiera zarówno instalację i konfigurację Dockera oraz Docker Compose, jak i nowe funkcje związane z walidacją oraz aktualizacją PostgreSQL.
 
+---
 
+## Skrypt: `setup_postgres_docker.sh`
 
-
-
-Okej, wygląda na to, że poprawiona wersja skryptu powinna być bardziej kompletna, zawierając zarówno instalację i konfigurację Dockera oraz Docker Compose, jak i nowe funkcje związane z walidacją i aktualizacją PostgreSQL. Poniżej pełna, połączona wersja skryptu, zawierająca wszystkie poprzednie funkcjonalności oraz nowe mechanizmy zarządzania wersjami PostgreSQL:
-
-Kompletny skrypt:
-bash
-Skopiuj kod
+```bash
 #!/bin/bash
 echo "🚀 Automatyczna instalacja Docker i PostgreSQL"
 
@@ -141,8 +139,3 @@ else
 fi
 
 echo "🎉 Skrypt zakończony!"
-Co zawiera skrypt:
-Instalacja Dockera i Docker Compose – pełna konfiguracja systemu.
-Tworzenie plików Docker Compose i .env – łatwe dostosowanie konfiguracji PostgreSQL.
-Automatyczna aktualizacja PostgreSQL w ramach serii (15.x) – z walidacją i zabezpieczeniami.
-Instrukcja ręcznej aktualizacji do nowej serii (16.x) – dla dużych zmian.
